@@ -1,0 +1,14 @@
+<h4 align="center" id="title_h4">Title: <%= @post.title%> </h4>
+<div class="well well-lg">
+  <div align="center">
+  <p>Created by:</p>
+    <%= link_to image_tag(@post.user.photo.url(:thumb), class: 'round'), user_path(@post.user) %>
+    <h4><%= link_to @post.user.email, user_path(@post.user) %></h4>
+  </div>
+  <p><%= @post.text%></p>
+  <div class="article-actions" id="buttons">
+  <%= link_to "Edit", edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+  <%=  link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete it?"}, class: "btn btn-xs btn-danger" %>
+  <%=  link_to "Back", posts_path, class: "btn btn-xs btn-success" %>
+  </div>
+</div>

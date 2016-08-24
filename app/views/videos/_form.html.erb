@@ -1,0 +1,22 @@
+<%= tinymce %>
+<%= form_for(@video, html:{ class: 'form-horizontal'}) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" class="col col-md-6" >
+    <%= f.label :title, class: "control-label"  %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
