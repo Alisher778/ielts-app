@@ -18,7 +18,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'tinymce-rails'
 gem 'rails_admin'
-
+gem 'aws-sdk', '~> 2.3'
 
 
 
