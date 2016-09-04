@@ -15,10 +15,10 @@ gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'devise'
-gem 'paperclip'
+gem "paperclip", "~> 5.0.0"
 gem 'tinymce-rails'
 gem 'rails_admin'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '~> 2.3.0'
 
 
 
