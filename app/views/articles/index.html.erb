@@ -17,9 +17,7 @@
   <% end %>
 </div>
 <br>
-<% if current_user.admin? %>
-  <%= link_to 'New Article', new_article_path, class: 'btn btn-md btn-primary' %>
-<% end %>
+
 <div align="center">
   <%= will_paginate @articles, renderer: BootstrapPagination::Rails%>
 </div>
