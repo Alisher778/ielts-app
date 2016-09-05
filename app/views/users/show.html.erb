@@ -2,7 +2,7 @@
   <div class="row"><br>
   <div class="col col-md-4">
     <div class="well">
-      <%= image_tag @user.photo.url(:medium), class: 'img-circle'%><br><br>
+      <%= link_to (image_tag @user.photo.url(:medium), class: 'img-circle img-responsive center-block')%><br>
       <p align="center">Number of my posts: <%= link_to @user.posts.count, topic_posts_path(@user)  %></p>
     </div>
   </div>
