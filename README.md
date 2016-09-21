@@ -1,1 +1,2 @@
-# BE-Final_Project
+This is a web site for learning english language for advanced ESL user. User can watch scientific videos and read articles. In addition, should any one has questions, comments and suggestions, he/she can use blog to get help from community.
+click the link here: https://ieltsapp.herokuapp.com/news_pages 

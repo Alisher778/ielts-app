@@ -19,14 +19,15 @@ gem "paperclip", "~> 5.0.0"
 gem 'tinymce-rails'
 gem 'rails_admin'
 gem 'aws-sdk', '~> 2'
-
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'awesome_print'
 
 
 
 group :development, :test do
   gem 'byebug'
   gem "better_errors"
-  gem 'awesome_print'
 end
 
 group :development do
@@ -36,7 +37,7 @@ group :development do
 end
 
 group :production do
-  gem 'awesome_print'
+  
 end
 
 

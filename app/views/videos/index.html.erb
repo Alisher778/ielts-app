@@ -4,12 +4,16 @@
     <a><iframe width="352" height="240"
     src="<%= video.title %>">
     </iframe></a>
-    <td><%= link_to 'Show', video %></td>
-    <td><%= link_to 'Edit', edit_video_path(video) %></td>
-    <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.try(:admin?) %>
+    <td><%= link_to 'Show', video, class: 'btn btn-xs btn-success' %></td>
+    <td><%= link_to 'Edit', edit_video_path(video), class: 'btn btn-xs btn-info' %></td>
+    <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+    <% end %>
     </div>
   <% end %>
 </div>
 <br>
 
-<%= link_to 'New Video', new_video_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'New Video', new_video_path, class: 'btn btn-md btn-primary' %>
+<% end %>

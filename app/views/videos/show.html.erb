@@ -6,6 +6,7 @@
   </div>
 </div>
   
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_video_path(@video), class: 'btn btn-xs btn-info' %> |
+  <%= link_to 'Back', videos_path, class: 'btn btn-xs btn-warning' %>
+<% end %>

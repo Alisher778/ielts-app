@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col col-md-12 col-md-offset-2">
+  <div class="col col-md-12">
     <h2><%= @news_page.title %></h2>
     <div><%= @news_page.content.html_safe %></div>
   </div>
 </div>
-<% if current_user.admin? %>
-  <%= link_to 'Edit', edit_news_page_path(@news_page) %> |
-  <%= link_to 'Back', news_pages_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_news_page_path(@news_page), class: 'btn btn-xs btn-info' %> |
+  <%= link_to 'Back', news_pages_path, class: 'btn btn-xs btn-warning' %>
 <% end %>
