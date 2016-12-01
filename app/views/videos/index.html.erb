@@ -1,11 +1,12 @@
 <div class="row">
   <% @videos.each do |video| %>
-  <div class="col col-xs-8  col-xs-offset-1 col-sm-4 col-md-5 col-lg-3 video" align="center">
+  <div class="col col-xs-8  col-xs-offset-1 col-sm-5 col-md-5 col-lg-3 video" align="center">
     <a style="position:relative">
     <span class="glyphicon glyphicon-resize-full click"></span>
-    <iframe width="100%" height="240"
-    src="<%= video.title %>">
+    <iframe width="100%" height="auto"
+    src="<%= video.video %>">
     </iframe></a>
+    <h4><%= video.title %></h4>
     <% if current_user.try(:admin?) %>
     <td><%= link_to 'Show', video, class: 'btn btn-xs btn-success' %></td>
     <td><%= link_to 'Edit', edit_video_path(video), class: 'btn btn-xs btn-info' %></td>
@@ -22,6 +23,11 @@
 
 
 <style>
+.col-xs-8 iframe{
+  height: 240px;
+}
+
+
   .overlay{
     position: absolute;
     top: 0;

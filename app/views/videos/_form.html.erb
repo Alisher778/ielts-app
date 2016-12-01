@@ -16,7 +16,11 @@
     <%= f.label :title, class: "control-label"  %><br>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.label :video, class: "control-label"  %><br>
+    <%= f.text_field :video, class: 'form-control', placeholder: "Paste the video's Embeded URL from youtube" %>
+  </div>
+  <div>
+    <%= f.submit "Upload", class: "btn btn-primary" %>
   </div>
 <% end %>
