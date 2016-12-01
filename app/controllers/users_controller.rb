@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    @currentUser = current_user.id
   end
 
   

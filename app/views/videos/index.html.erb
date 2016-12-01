@@ -1,7 +1,9 @@
 <div class="row">
   <% @videos.each do |video| %>
-  <div class="col col-md-4">
-    <a><iframe width="352" height="240"
+  <div class="col col-md-4 video" >
+    <a style="position:relative">
+    <span class="glyphicon glyphicon-resize-full click"></span>
+    <iframe width="352" height="240"
     src="<%= video.title %>">
     </iframe></a>
     <% if current_user.try(:admin?) %>
@@ -17,3 +19,72 @@
 <% if current_user.try(:admin?) %>
   <%= link_to 'New Video', new_video_path, class: 'btn btn-md btn-primary' %>
 <% end %>
+
+
+<style>
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    overflow: hidden;
+  }
+  .close{
+    font-size: 28px;
+    color: white;
+    position: absolute;
+    right: 3%;
+    top: 13%;
+    opacity: 1;
+  }
+  .close:hover{
+    color: orange;
+  }
+  .click{
+    color: white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -7px;
+    right: 3px;
+  }  
+  .overlay iframe{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  div.ytp-popup.ytp-generic-popup{
+    display: none;
+  }
+</style>
+<script>
+  $(document).ready(function(){
+    $('button.ytp-watch-later-button.ytp-button').css('display', 'none');
+    $('.video').click(function() {
+        var bodyHeight = $(window).height();
+        var bodywidth = $(window).width();
+        $('.body').css({
+            'position': 'absolute',
+            'width': bodywidth,
+            'height': bodyHeight
+        });
+        $('#body-wrapper, .container, footer').css('display', 'none');
+        $(this).addClass('selected');
+        var $overlay = $('<div class="overlay"></div>')
+        $('body').append($overlay);
+        var $videoSrc = $(this).find('iframe').attr('src');
+        $('.overlay').append('<iframe class="source"></iframe>', '<span class="close">X</span>');
+        $('.source').attr('src', $videoSrc);
+
+        $('.close').click(function() {
+            $('#body-wrapper, .container, footer').css('display', 'block');
+            $('.overlay').remove();
+        })
+    });
+    
+  });
+</script>

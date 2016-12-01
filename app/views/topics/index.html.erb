@@ -15,7 +15,7 @@
         <th style="width: 10%; text-align: center">Comments
           <p> <%= topic.posts.count%></p>
         </th>
-        <% if current_user.try(:admin)?%>
+        <% if current_user.try(:admin)%>
         <th>
           <div class="dropdown">
              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -41,3 +41,4 @@
 <br>
 
 <%= link_to 'New Topic', new_topic_path, class: "btn btn-success btn-md" %>
+
