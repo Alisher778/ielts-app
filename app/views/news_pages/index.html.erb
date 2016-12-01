@@ -1,6 +1,6 @@
 <div class="row">
   <% @news_pages.each do |news_page| %>
-  <div class="col col-md-4" style="margin: 05px 0">
+  <div class="col col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-lg-4"  align="center" style="margin: 05px 0">
    <a href="<% link_to news_page %>"><%= image_tag news_page.try(:image).url(:medium), class: "img-thumbnail" %>
     <h4><%= link_to truncate(news_page.title, length:35), news_page %></h4>
     </a>
